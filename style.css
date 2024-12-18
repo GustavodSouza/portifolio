@@ -1,0 +1,16 @@
+body {
+  background: #1d1f20;
+  color: white;
+}
+
+.container-port {
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media(max-width: 800px) {
+  .container-port {
+    margin: none;
+    width: 80%;
+  }
+}
