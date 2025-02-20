@@ -6,6 +6,7 @@ let input = document.getElementById("clrinput");
 const botaoVerMais = document.getElementById("ver-mais");
 const card = document.getElementById("projetos-card");
 const filtroTechs = document.getElementById("filtro-techs");
+const filtroTechsMenu = document.getElementById("filtro-techs-menu");
 
 // Função de renderização dos projetos
 function renderizarProjetos(filtrados) {
@@ -20,7 +21,7 @@ function renderizarProjetos(filtrados) {
       const display = index > 3 ? "hidden" : "show"
 
       card.innerHTML += `
-        <div class="pt-5 col-md-12 col-sm-12 ${display} cards" style="border: 1px solid white; border-radius: 5px">
+        <div class="pt-5 ${display} cards" style="border: 1px solid white; border-radius: 5px">
             <div class="column">
                 <p class="h4 mb-4">${item.titulo}</p>
                 <p>${item.descricao}</p>
@@ -43,7 +44,7 @@ function renderizarProjetos(filtrados) {
       elem.style.display = "none";
     }
   } else {
-    card.innerHTML = '<strong>Nenhum projeto encontrado com esta tecnologia!</strong>';
+    card.innerHTML = '<strong>Nenhum projeto encontrado com esta tecnologia ou descrição!</strong>';
   }
 }
 
@@ -80,12 +81,16 @@ function separarTechs() {
 // Função para renderizar os filtros de checkbox
 function renderizarFiltrosCheckboxes(techsSeparadas) {
   for (const valor of techsSeparadas.values()) {
-    filtroTechs.innerHTML += `
+    const htmlCheckbox = `
       <div class="form-check form-check-inline d-flex">
         <input id="checkboxInpt" class="form-check-input checkbox" type="checkbox" id="techs${valor}" value="${ valor }">
         <label class="form-check-label px-3" for="techs${valor}">${ valor }</label>
       </div>
     `;
+
+    filtroTechs.innerHTML += htmlCheckbox;
+
+    filtroTechsMenu.innerHTML += htmlCheckbox;
   }
 }
 

@@ -4,7 +4,7 @@ export const projetos = [
         github: "https://github.com/GustavodSouza/vue3-chat-app",
         site: "https://vue3-chat.vercel.app",
         img: "assets/meus-gastos2.png",
-        descricao: "Chat app desenvolvido utiliando Vue 3 com firebase.",
+        descricao: "Chat app desenvolvido utilizando Vue 3 com firebase.",
         tecnologias: "Vue 3 - Javascript - Typescript - Scss - Bootstrap - Firebase",
     },
     {
