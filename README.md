@@ -12,4 +12,6 @@ Portifólio criado por minha autoria e lógica, destinado a mostrar os projetos 
 
 ![Logo](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
+## Deploy
 
+![Logo](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
