@@ -3,14 +3,32 @@ body {
   color: white;
 }
 
-/* .container-port {
-  width: 50%;
-  margin: 0 auto;
+.container {
+  height: 100vh;
+  padding: 30px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
 }
 
-@media(max-width: 800px) {
-  .container-port {
-    margin: none;
-    width: 80%;
+.fonte {
+  font-size: 2em
+}
+
+.menu-filtro {
+  display: none;
+}
+
+@media (max-width: 440px) {
+  .fonte {
+    font-size: 1.5em;
   }
-} */
+  
+  .ocultar {
+    display: none;
+  }
+
+  .menu-filtro  {
+    display: block;
+  }
+}
