@@ -1,28 +1,31 @@
 import { projetos } from './projetos.js';
 
-let click = false;
 let input = document.getElementById("clrinput");
 
-const botaoVerMais = document.getElementById("ver-mais");
 const card = document.getElementById("projetos-card");
 const filtroTechs = document.getElementById("filtro-techs");
 const filtroTechsMenu = document.getElementById("filtro-techs-menu");
+
+document.getElementById('totalProjetos').innerHTML = projetos.length
+
+const elementosPorPagina = 5;
+let paginaAtual = 1;
 
 // Função de renderização dos projetos
 function renderizarProjetos(filtrados) {
   const data = filtrados ? filtrados : projetos;
 
-  botaoVerMais.style.display = data.length > 4 ? '' : 'none';
-
   if (data.length > 0) {
+    const inicio = (paginaAtual - 1) * elementosPorPagina;
+    const fim = inicio + elementosPorPagina;
+    const projetosPagina = data.slice(inicio, fim);
+    
     card.innerHTML = '';
 
-    data.forEach((item, index) => {
-      const display = index > 3 ? "hidden" : "show"
-
+    projetosPagina.forEach((item) => {
       card.innerHTML += `
-        <div class="pt-5 ${display} cards" style="border: 1px solid white; border-radius: 5px">
-            <div class="column">
+        <div class="col-12 d-flex pt-5 cards" style="border: 1px solid white; border-radius: 5px">
+            <div class="column col-9">
                 <p class="h4 mb-4">${item.titulo}</p>
                 <p>${item.descricao}</p>
                 <strong>${item.tecnologias}</strong>
@@ -37,6 +40,9 @@ function renderizarProjetos(filtrados) {
                     </a>
                 </div>
             </div>
+            <div class="col-3">
+              <i-frame url="https://upload.wikimedia.org/wikipedia/commons/d/de/Scorpions_in_Melbourne%2C_Australia_17.10.2016.jpg" />
+            </div>
         </div>`;
     });
     const elems = document.querySelectorAll(".hidden");
@@ -48,20 +54,51 @@ function renderizarProjetos(filtrados) {
   }
 }
 
-// Função para "ver mais" projetos
-function verMaisProjetos() {
-  click = !click;
+gerarPaginacao();
 
-  const elems = document.querySelectorAll(".hidden");
+function gerarPaginacao(filtrados) {
+  const data = filtrados ? filtrados : projetos;
 
-  for (const elem of elems) {
-    elem.style.display = click ? "flex" : "none";
+  const paginacao = document.getElementById('paginacao');
+  paginacao.innerHTML = "";
+
+  const totalPaginas = Math.ceil(data.length / elementosPorPagina);
+
+  for (let i = 1; i <= totalPaginas; i++) {
+    const li = document.createElement("li");
+    li.classList.add("page-item");
+    if (i === paginaAtual) li.classList.add("active");
+
+    li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+    li.addEventListener("click", () => {
+      paginaAtual = i;
+      gerarPaginacao();
+      renderizarProjetos();
+    });
+
+    paginacao.appendChild(li);
   }
 
-  botaoVerMais.textContent = click
-    ? "Ver menos"
-    : "Ver mais";
-}
+  document.getElementById("prevPage").classList.toggle("disabled", paginaAtual === 1);
+  document.getElementById("nextPage").classList.toggle("disabled", paginaAtual === totalPaginas);
+};
+
+document.getElementById("prevPage").addEventListener("click", () => {
+  if (paginaAtual > 1) {
+    paginaAtual--;
+    gerarPaginacao();
+    renderizarProjetos();
+  }
+});
+
+document.getElementById("nextPage").addEventListener("click", () => {
+  const totalPaginas = Math.ceil(projetos.length / elementosPorPagina);
+  if (paginaAtual < totalPaginas) {
+    paginaAtual++;
+    gerarPaginacao();
+    renderizarProjetos();
+  }
+});
 
 // Função para separar as tecnologias
 function separarTechs() {
@@ -110,6 +147,7 @@ function filtrarCheckbox() {
 
   result = filtrados.length ? filtrados : projetos;
 
+  gerarPaginacao(result)
   renderizarProjetos(result);
 }
 
