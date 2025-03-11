@@ -167,8 +167,8 @@ input.addEventListener("input", () => {
   limparCheckboxes();
   
   if (input.value) {
-    click = false;
     const inputSearch = input.value.toLowerCase()
+    console.log(inputSearch)
     const filtrados = projetos.filter((item) => item.tecnologias.toLowerCase().match(inputSearch) || item.titulo.toLowerCase().match(inputSearch))
     renderizarProjetos(filtrados);
   } else {
