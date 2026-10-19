@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
@@ -77,4 +76,3 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 =======
 # portifolio
 A small portfolio created from show my projects and study.
->>>>>>> origin/main
