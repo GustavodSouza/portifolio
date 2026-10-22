@@ -69,7 +69,7 @@ useSeoMeta({
           <p class="text-slate-300 leading-relaxed">
             Sou desenvolvedor Full Stack com mais de {{ anosExperiencia }} anos de experiência construindo sistemas web
             para clientes de grande porte. No front-end trabalho com Angular e Vue.js; no back-end, com Java e Spring Boot,
-            indo de telas e componentes reutilizáveis a APIs REST e testes automatizados.
+            indo de telas e componentes reutilizáveis a APIs REST.
           </p>
 
           <ul class="flex flex-wrap justify-center md:justify-start gap-2 mt-6">
