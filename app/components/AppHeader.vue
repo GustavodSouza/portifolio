@@ -47,16 +47,15 @@
 <script setup lang="ts">
 const itensMenu = [
   { to: '/', label: 'Início' },
-  { to: '/projetos', label: 'Projetos' },
-  { to: '/sobre_mim', label: 'Sobre_mim' },
-  { to: '/contato', label: 'Contato' },
+  { to: '/#projetos', label: 'Projetos' },
+  { to: '/sobre_mim', label: 'Sobre_mim' }
 ]
 
 const menuAberto = ref(false)
 
 // Fecha o menu mobile ao trocar de página
 const route = useRoute()
-watch(() => route.path, () => {
+watch(() => route.fullPath, () => {
   menuAberto.value = false
 })
 </script>
