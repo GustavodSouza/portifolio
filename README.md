@@ -1,78 +1,63 @@
-# Nuxt Minimal Starter
+# Portfólio — Gustavo de Souza
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Meu portfólio pessoal: um lugar para reunir quem eu sou, o que eu faço e os projetos que construí.
 
-## Setup
+Sou desenvolvedor full stack com mais de 5 anos de experiência, com foco em front-end web (Vue.js, Angular) e back-end em Java/Spring Boot.
 
-Make sure to install dependencies:
+## 🚀 Tecnologias
+
+- [Nuxt](https://nuxt.com/) — framework Vue com SSR/SSG
+- [Vue.js](https://vuejs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- TypeScript
+
+## 📁 Estrutura
+
+```
+├── assets/        # Estilos e imagens
+├── components/    # Componentes Vue reutilizáveis
+├── data/          # Dados do site (ex.: lista de projetos)
+├── pages/         # Rotas da aplicação
+├── public/        # Arquivos estáticos
+└── nuxt.config.ts # Configuração do Nuxt
+```
+
+Os projetos exibidos no site ficam em um array tipado (`projetos: Projeto[]`). Para adicionar um novo, basta incluir um objeto com `titulo`, `descricao`, `tecnologias`, `repositorio` e, opcionalmente, `demo`.
+
+## 🛠️ Rodando localmente
+
+Pré-requisitos: [Node.js](https://nodejs.org/) 18+ e npm.
 
 ```bash
-# npm
+# Clonar o repositório
+git clone https://github.com/GustavodSouza/portifolio.git
+cd portifolio
+
+# Instalar dependências
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Subir o servidor de desenvolvimento (http://localhost:3000)
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+## 📦 Build
 
 ```bash
-# npm
+# Build de produção
 npm run build
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
+# Pré-visualizar o build
 npm run preview
 
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+# Gerar versão estática
+npm run generate
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-=======
-# portifolio
-A small portfolio created from show my projects and study.
+## 📬 Contato
+
+- GitHub: [@GustavodSouza](https://github.com/GustavodSouza)
+- LinkedIn: [https://www.linkedin.com/in/gustavo-de-souza-de-lima-084024b4/](https://www.linkedin.com/in/gustavo-de-souza-de-lima-084024b4/)
+
+---
+
+Feito com ☕ e Vue por Gustavo de Souza.
